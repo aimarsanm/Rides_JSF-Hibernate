@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view>
+	<h:head>
+		<title>HIRI GUZTIAK</title>
+		<h:outputStylesheet name="style.css" />
+	</h:head>
+	<h:body>
+		<h:form>
+			<table>
+				<tr>
+					<td>Hiri batera iristen diren bidai guztiak erakutsi</td>
+					<td><h:selectOneMenu value="#{QueryRideBean.depart}">
+							<f:selectItems value="#{QueryRideBean.dcities}" />
+						</h:selectOneMenu></td>
+
+				</tr>
+				
+			</table>
+			<p><h:commandButton value="taula" action="#{QueryRideBean.searchRides3}" immediate="true" />
+			</p>
+			<h:messages id="mezuak" style="color:blue" />
+		</h:form>
+	</h:body>
+</f:view>
+</html>

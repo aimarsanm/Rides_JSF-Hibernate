@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+	<f:view>
+		<h:head>
+			<title>JavaServer Faces aplikazioa</title>
+		</h:head>
+		<h:body>
+			<h:form >
+				<table>
+					<tr>
+					<td></td>
+						<td><p:dataTable id="taulaPF" value="#{QueryRideBean.rides}"
+								var="item" border="1">
+								<f:facet name="header">Bidai guztiak erakutsi</f:facet>
+								<p:column headerText="ARRIVAL CITY">#{ride.destination}</p:column>
+								<p:column headerText="DRIVER NAME">#{ride.driver.getName()}</p:column>
+								<p:column headerText="RIDE DATA">#{ride.date}</p:column>
+								<p:column headerText="PRICE">#{ride.price}</p:column>
+							</p:dataTable></td>
+						
+					</tr>
+				</table>
+				
+				<h:messages id="mezuak" style="color:blue" />
+			</h:form>
+		</h:body>
+	</f:view>
+ 
+</html>

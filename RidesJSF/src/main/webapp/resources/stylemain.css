@@ -1,0 +1,67 @@
+/* General Reset */
+body, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Form Container */
+form {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Header Styling */
+h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Button Styling */
+h:commandButton {
+    display: inline-block;
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 15px;
+}
+
+h:commandButton:hover {
+    background-color: #0056b3;
+}
+
+/* Paragraph Styling */
+p {
+    margin-bottom: 15px;
+}
+
+/* Link for Accessibility */
+a {
+    color: inherit;
+    text-decoration: none;
+}

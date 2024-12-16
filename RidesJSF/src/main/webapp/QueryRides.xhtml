@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view>
+	<h:head>
+		<title>Query Rides</title>
+		<h:outputStylesheet name="stylequery.css" />
+	</h:head>
+	<h:body>
+		<h:form>
+			<table>
+				<tr>
+					<td>Depart City</td>
+					<td><h:selectOneMenu value="#{QueryRideBean.depart}">
+							<f:selectItems value="#{QueryRideBean.dcities}" />
+							<f:ajax listener="#{QueryRideBean.updateAcities}" render="arrivalMenu" />
+						</h:selectOneMenu></td>
+
+				</tr>
+				<tr>
+					<td>Arrival City</td>
+					<td><h:selectOneMenu id="arrivalMenu" value="#{QueryRideBean.array}">
+							<f:selectItems value="#{QueryRideBean.acities}" />
+						</h:selectOneMenu></td>
+
+				</tr>
+				<tr>
+					<td>Ride Data</td>
+					<td><p:calendar id="data" value="#{QueryRideBean.data}"
+							navigator="false" mode="inline">
+							<p:ajax event="change" listener="#{QueryRideBean.onDateSelect}"
+								update="mezuak" />
+						</p:calendar></td>
+				</tr>
+				<tr>
+					<td><h:dataTable id="taula" value="#{QueryRideBean.rides}" var="ride"
+							border="1">
+							<f:facet name="header">Bidaiak</f:facet>
+							<h:column>
+								<f:facet name="header">Driver</f:facet>
+								#{ride.driver.getName()}
+							</h:column>
+							<h:column>
+								<f:facet name="header">Seats</f:facet>
+								#{ride.nPlaces}
+							</h:column>
+							<h:column>
+								<f:facet name="header">Price</f:facet>
+								#{ride.price}
+							</h:column>
+							
+						</h:dataTable></td>
+				</tr>
+			</table>
+			<p><h:commandButton value="Search" action="#{QueryRideBean.searchRides}" />
+				<h:commandButton value="Close" action="close" immediate="true" />
+			</p>
+			<h:messages id="mezuak" style="color:blue" />
+		</h:form>
+	</h:body>
+</f:view>
+</html>

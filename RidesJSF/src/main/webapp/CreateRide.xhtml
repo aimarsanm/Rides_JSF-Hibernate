@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view>
+	<h:head>
+		<title>Create Ride</title>
+		<h:outputStylesheet name="stylecreate.css" />
+	</h:head>
+	<h:body>
+		<h:form>
+			<table>
+				<tr>
+					<td>Depart City</td>
+					<td><h:inputText id="depart" value="#{CreateRideBean.depart}">
+							<f:validateRegex pattern="^([a-zA-Z ]+)$" />
+						</h:inputText></td>
+					
+				</tr>
+				<tr>
+					<td>Arrival City</td>
+					<td><h:inputText id="array" value="#{CreateRideBean.array}">
+							<f:validateRegex pattern="^([a-zA-Z ]+)$" />
+						</h:inputText></td>
+					
+				</tr>
+				<tr>
+					<td>Number of Seats</td>
+					<td><h:inputText id="seat" value="#{CreateRideBean.seat}">
+							
+						</h:inputText></td>
+					
+				</tr>
+				<tr>
+					<td>Price</td>
+					<td><h:inputText id="price" value="#{CreateRideBean.price}">
+							<f:validateRegex pattern="^[0-9]+(\.[0-9]+)?$" />
+						</h:inputText></td>
+					
+				</tr>
+				<tr>
+					<td>Ride Data</td>
+					<td><p:calendar id="data" value="#{CreateRideBean.data}"
+							navigator="false" mode="inline">
+							<p:ajax event="change" listener="#{CreateRideBean.onDateSelect}"
+									update="mezuak" />
+						</p:calendar>
+						</td>
+				</tr>
+			</table>
+			<p>
+				<h:commandButton value="Create Ride" action="#{CreateRideBean.createRide}"/>
+				<h:commandButton value="Close" action="close" immediate="true"/>
+			</p>
+			<h:messages id="mezuak" style="color:blue" />
+		</h:form>
+	</h:body>
+</f:view>
+</html>
